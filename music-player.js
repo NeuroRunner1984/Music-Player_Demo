@@ -10,10 +10,10 @@ const nextSongButton = document.getElementById("next-song");
 
 const songs = [
     {
-        image: "./album-art1.jpg",
-        name: "Deck The Halls",
-        artist: "John Parry",
-        audio: "./deck-the-halls.mp3"
+        image: "./FaceOff.JPG",
+        name: "Boring_Dystopia.mp3",
+        artist: "¡R!CHelD!OS!",
+        audio: "./Boring_Dystopia.mp3.mp3"
     },
     {
         image: "./album-art2.jpg",

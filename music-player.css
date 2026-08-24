@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #a6ff00, #00ffff, #008277, #d0ff00) ;
+    font-family: "Changa One", Helvetica, sans-serif;
+    background-image: linear-gradient(to right, #ff0000, #ff7f00, #ffff008a, #a6ff0075, #00ffff, #008277, #d0ff00) ;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -130,6 +130,31 @@ body {
 #song-name {
     margin-top: 20px;
     font-size: 2em;
+    color: rgb(255, 0, 85);
+    font: 1.9em "Silkscreen", Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+#song-artist {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    font-size: 1.2em;
+    color: rgb(251, 0, 255);
+    font: Bold 1.2em "Roboto", Helvetica, sans-serif;
+    background-color: rgba(46, 217, 189, 0.5);
+    padding: .1em .5em;
+    width: 20vw;
+    height: 5vh;
+    background-color: #4534db;
+    /* Modern native slant */
+     corner-shape: slant 5deg;
+  /* 1. Centers the font */
+  display: flex;
+  justify-content: center; /* Horizontally centers */
+  align-items: center;     /* Vertically centers */
+  /* 2. Your slanted shape (Example: clip-path) */
+  clip-path: polygon(40px 0%, 100% 0%, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0% 100%, 0% 40px);
+
 }
 
 #music-buttons {
