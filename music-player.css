@@ -1,12 +1,124 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #a6ff00, #00ffff, #008277, #d0ff00) ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-attachment: fixed; */
+
 }
+
+/* Core setup for the background container */
+.glitch-bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate; /* Ensures pseudo-elements don't bleed outside */
+  /* Apply the primary background image */
+  background-image: url('Carl.png');
+;
+}
+
+/* Base styles for the glitch layers */
+.glitch-bg::before,
+.glitch-bg::after {
+  content: '';
+  position: absolute;
+  background-image: url('Carl.png');
+  inset: 0; /* Ensures the pseudo-elements cover the entire container */
+  z-index: 1; /* Places them above the base background */
+  pointer-events: none; /* Ensures they don't interfere with user interactions */
+}
+
+/* Layer 1: Top/Middle slice distortion (Red/Cyan tint shift via blend-mode optional) */
+.glitch-bg::before {
+  left: 2px;
+ filter: hue-rotate(90deg);
+  /* Animates the horizontal cutting path */
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+/* Layer 2: Bottom/Middle slice distortion */
+.glitch-bg::after {
+  left: -2px;
+  filter: hue-rotate(-90deg);
+  /* Animates a different path at a different rhythm */
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* Keyframes for the first glitch layer */
+@keyframes glitch-anim-1 {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: skew(-0.5deg);
+  }
+  40% {
+    clip-path: inset(15% 0 80% 0);
+    transform: skew(0.5deg);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+    transform: skew(-0.3deg);
+  }
+  80% {
+    clip-path: inset(3% 0 92% 0);
+    transform: skew(0.8deg);
+  }
+  100% {
+    clip-path: inset(67% 0 24% 0);
+    transform: skew(0deg);
+  }
+}
+
+/* Keyframes for the second glitch layer */
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(-3px, 2px);
+  }
+  25% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(3px, -2px);
+  }
+  50% {
+    clip-path: inset(5% 0 85% 0);
+    transform: translate(-2px, 3px);
+  }
+  75% {
+    clip-path: inset(55% 0 35% 0);
+    transform: translate(2px, -3px);
+  }
+  100% {
+    clip-path: inset(12% 0 78% 0);
+    transform: translate(0, 0);
+  }
+}
+
+/* Optional: Respect users who prefer reduced motion by disabling the effect */
+@media (prefers-reduced-motion: reduce) {
+  .glitch-bg::before,
+  .glitch-bg::after {
+    display: none;
+    animation: none;
+  }
+}
+
 
 #music-player {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
 
 #song-image {
@@ -28,7 +140,7 @@ body {
 
 #music-buttons i {
     padding: 10px;
-    /* color: red; */
+    color: rgb(226, 12, 254);
 }
 
 #slider-song {
@@ -38,8 +150,8 @@ body {
     appearance: none;
     width: 300px;
     height: 5px;
-    background: repeating-linear-gradient(45deg, red, red 12px, white 12px, white 24px);
-    border: 1px solid red;
+    background: repeating-linear-gradient(45deg, rgb(255, 55, 0), rgb(255, 230, 0) 12px, white 12px, white 24px);
+    border: 1px solid rgb(255, 89, 0);
     border-radius: 10px;
     margin-top: 20px;
 }
@@ -48,8 +160,9 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: red;
+    background: rgb(0, 110, 255);
     width: 15px;
     height: 15px;
     border-radius: 50%;
+
 }
